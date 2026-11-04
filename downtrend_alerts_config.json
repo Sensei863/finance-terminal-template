@@ -1,0 +1,6 @@
+{
+  "enable_weekly_recap": true,
+  "recap_day": 5,
+  "recap_hour": 18,
+  "threshold_rsi": 45
+}

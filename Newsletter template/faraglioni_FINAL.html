@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faraglioni & Aegis Family Office — Weekly Investor Letter</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:       #0a1628;
+    --navy-mid:   #112240;
+    --navy-light: #1a3a5c;
+    --gold:       #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dark:  #a07830;
+    --cream:      #f8f5ef;
+    --cream-dark: #ede8de;
+    --slate:      #8a9bb0;
+    --white:      #ffffff;
+    --green:      #2d7a4f;
+    --red:        #8b2635;
+    --border:     rgba(201,168,76,0.25);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: #e0dbd2;
+    font-family: "Montserrat", sans-serif;
+    color: var(--navy);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .email-wrapper {
+    max-width: 720px;
+    margin: 40px auto;
+    background: var(--cream);
+    box-shadow: 0 20px 80px rgba(10,22,40,0.22), 0 4px 16px rgba(10,22,40,0.1);
+  }
+
+  /* ══ HEADER ══ */
+  .header {
+    background: var(--navy);
+    padding: 48px 56px 40px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold-light) 50%, var(--gold) 80%, transparent);
+  }
+
+  /* Subtle radial glow behind logo */
+  .header-glow {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 300px; height: 300px;
+    background: radial-gradient(ellipse at center, rgba(201,168,76,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .logo-container {
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .firm-name {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .report-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .report-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .header-meta {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    border-top: 1px solid rgba(201,168,76,0.2);
+    padding-top: 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .meta-item {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--slate);
+    text-align: center;
+  }
+
+  .meta-item span {
+    display: block;
+    color: var(--cream);
+    font-weight: 500;
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+    font-size: 11px;
+    text-transform: none;
+  }
+
+  /* ══ HERO IMAGE ══ */
+  .hero-image-wrap {
+    width: 100%;
+    display: block;
+    border-bottom: 3px solid var(--gold);
+    position: relative;
+  }
+  .hero-image-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .hero-image-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+      rgba(10,22,40,0.12) 0%,
+      transparent 35%,
+      transparent 70%,
+      rgba(10,22,40,0.06) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* ══ BODY ══ */
+  .body { padding: 0 56px 56px; }
+
+  /* ══ SECTIONS ══ */
+  .section { padding: 40px 0; border-bottom: 1px solid var(--cream-dark); }
+  .section:last-child { border-bottom: none; }
+
+  .section-number {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 11px;
+    color: var(--slate);
+    margin-bottom: 3px;
+    letter-spacing: 1px;
+  }
+
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .section-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ══ PERFORMANCE TABLE ══ */
+  .perf-table { width:100%; border-collapse:collapse; }
+
+  .perf-table th {
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    font-weight: 500; padding: 11px 16px; text-align: right;
+    background: var(--navy); color: var(--slate);
+  }
+  .perf-table th:first-child { text-align: left; }
+
+  .perf-table td {
+    padding: 15px 16px; font-size: 12px; font-weight: 500;
+    text-align: right; border-bottom: 1px solid var(--cream-dark); color: var(--navy);
+  }
+  .perf-table td:first-child {
+    text-align: left;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 16px; font-weight: 400;
+  }
+  .perf-table tr.total-row td {
+    background: var(--navy); color: var(--white);
+    border-bottom: none; font-weight: 600;
+  }
+  .perf-table tr.total-row td:first-child { color: var(--gold-light); font-weight: 400; }
+  .perf-table tr.total-row td.pos { color: #7dd4a8; }
+  .perf-table tr.total-row td.sharpe { color: var(--gold-light); }
+
+  .pos { color: var(--green); }
+  .neg { color: var(--red); }
+
+  .strategy-badge {
+    display: block; font-size: 9px; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--slate);
+    font-family: "Montserrat", sans-serif; font-weight: 400; margin-top: 3px;
+  }
+
+  /* ══ CONTRIBUTION ══ */
+  .contrib-group-label {
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--slate); margin-bottom: 16px; font-weight: 600;
+  }
+  .contrib-item { margin-bottom: 22px; }
+  .contrib-header {
+    display: flex; justify-content: space-between;
+    align-items: baseline; margin-bottom: 6px;
+  }
+  .contrib-ticker {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 17px; font-weight: 400; color: var(--navy);
+  }
+  .contrib-pct { font-size: 13px; font-weight: 600; letter-spacing: 0.5px; }
+  .contrib-desc { font-size: 10.5px; color: var(--slate); margin-bottom: 9px; line-height: 1.6; }
+  .bar-track { height: 2px; background: var(--cream-dark); }
+  .bar-fill { height: 100%; }
+  .bar-fill.pos { background: var(--green); }
+  .bar-fill.neg { background: var(--red); }
+  .contrib-divider { border: none; border-top: 1px dashed var(--cream-dark); margin: 24px 0; }
+
+  /* ══ NARRATIVE ══ */
+  .narrative-box {
+    background: var(--navy);
+    padding: 32px 36px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  .narrative-box::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(to bottom, var(--gold), var(--gold-light), var(--gold));
+  }
+  .narrative-box::before {
+    content: "\201C";
+    font-family: "Cormorant Garamond", serif;
+    font-size: 130px; color: var(--gold); opacity: 0.12;
+    position: absolute; top: -12px; left: 28px;
+    line-height: 1; pointer-events: none;
+  }
+  .narrative-text {
+    font-family: "EB Garamond", serif;
+    font-size: 17px; font-style: italic;
+    color: rgba(248,245,239,0.92); line-height: 1.85;
+    position: relative; z-index: 1;
+  }
+  .narrative-text strong {
+    font-style: normal; font-weight: 600; color: var(--gold-light);
+  }
+  .narrative-footer {
+    font-size: 9px; color: var(--slate); margin-top: 18px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding-top: 16px; border-top: 1px solid rgba(201,168,76,0.15);
+    display: flex; justify-content: space-between;
+  }
+
+  /* ══ TECHNICAL ══ */
+  .tech-featured {
+    background: var(--cream-dark); padding: 16px 20px;
+    margin-bottom: 16px; display: flex;
+    justify-content: space-between; align-items: center;
+    border-left: 3px solid var(--gold);
+  }
+  .tech-featured-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--slate); margin-bottom: 4px; }
+  .tech-featured-ticker { font-family: "Cormorant Garamond", serif; font-size: 20px; color: var(--navy); }
+  .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .tech-card {
+    background: var(--white); border: 1px solid var(--cream-dark);
+    padding: 20px; position: relative; overflow: hidden;
+  }
+  .tech-card::before {
+    content: ""; position: absolute; top: 0; left: 0;
+    width: 100%; height: 2px; background: var(--gold);
+  }
+  .tech-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--slate); margin-bottom: 10px; }
+  .tech-value { font-family: "Cormorant Garamond", serif; font-size: 30px; font-weight: 300; color: var(--navy); line-height: 1; margin-bottom: 6px; }
+  .tech-signal {
+    font-size: 9.5px; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase; padding: 3px 9px;
+    display: inline-block; margin-top: 4px; margin-bottom: 6px;
+  }
+  .tech-signal.bullish { background: rgba(45,122,79,0.1); color: var(--green); }
+  .tech-signal.caution { background: rgba(201,168,76,0.15); color: #8a6800; }
+  .tech-signal.bearish { background: rgba(139,38,53,0.1); color: var(--red); }
+  .tech-note { font-size: 10.5px; color: var(--slate); line-height: 1.6; margin-top: 4px; }
+
+  /* ══ TRADES ══ */
+  .trade-item {
+    padding: 18px 0; border-bottom: 1px solid var(--cream-dark);
+    display: flex; gap: 18px; align-items: flex-start;
+  }
+  .trade-item:last-child { border-bottom: none; }
+  .trade-tag {
+    font-size: 8.5px; letter-spacing: 1.5px; text-transform: uppercase;
+    font-weight: 700; padding: 4px 10px; white-space: nowrap; flex-shrink: 0; margin-top: 3px;
+  }
+  .trade-tag.breakout { background: rgba(45,122,79,0.1);  color: var(--green); }
+  .trade-tag.hedge    { background: rgba(201,168,76,0.15); color: #7a5f00; }
+  .trade-tag.watch    { background: rgba(26,58,92,0.1);   color: var(--navy-light); }
+  .trade-tag.reduce   { background: rgba(139,38,53,0.1);  color: var(--red); }
+
+  /* ══ PART A — TRADE LEDGER TABLE ══ */
+  .ledger-wrap { margin: 12px 0 28px; overflow-x: auto; }
+  .ledger-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 10.5px; color: var(--navy);
+  }
+  .ledger-table th {
+    text-align: left; font-size: 8.5px; letter-spacing: 1.2px;
+    text-transform: uppercase; color: var(--slate); font-weight: 600;
+    padding: 0 10px 8px 0; border-bottom: 1px solid var(--cream-dark);
+  }
+  .ledger-table td {
+    padding: 9px 10px 9px 0;
+    border-bottom: 1px solid var(--cream-dark); vertical-align: middle;
+  }
+  .ledger-table tr:last-child td { border-bottom: none; }
+  .ledger-table .dir-pill {
+    display: inline-block; font-size: 8px; font-weight: 700;
+    letter-spacing: 1.2px; text-transform: uppercase;
+    padding: 3px 8px; white-space: nowrap;
+  }
+  .ledger-table .dir-buy  { background: rgba(45,122,79,0.1);  color: var(--green); }
+  .ledger-table .dir-sell { background: rgba(139,38,53,0.1);  color: var(--red); }
+  .ledger-table .dir-div  { background: rgba(201,168,76,0.15); color: #7a5f00; }
+  .ledger-table .dir-fee  { background: rgba(26,58,92,0.08);  color: var(--slate); }
+  .ledger-table .no-trades {
+    font-style: italic; color: var(--slate); font-size: 11px; padding: 16px 0;
+  }
+  .trade-title { font-family: "Cormorant Garamond", serif; font-size: 17px; color: var(--navy); margin-bottom: 6px; }
+  .trade-desc { font-size: 11px; color: var(--slate); line-height: 1.6; }
+  .trade-condition { font-size: 10px; font-weight: 600; color: var(--navy); margin-top: 7px; }
+
+  /* ══ CALENDAR ══ */
+  .calendar-item {
+    display: flex; gap: 20px; padding: 12px 0;
+    border-bottom: 1px solid var(--cream-dark); align-items: center;
+  }
+  .calendar-item:last-child { border-bottom: none; }
+  .cal-day { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--slate); width: 60px; flex-shrink: 0; font-weight: 600; }
+  .cal-event { font-family: "Cormorant Garamond", serif; font-size: 15px; color: var(--navy); flex: 1; }
+  .cal-impact { font-size: 8.5px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; padding: 3px 9px; flex-shrink: 0; }
+  .cal-impact.high   { background: rgba(139,38,53,0.1); color: var(--red); }
+  .cal-impact.medium { background: rgba(201,168,76,0.15); color: #7a5f00; }
+  .cal-impact.low    { background: rgba(138,155,176,0.15); color: var(--slate); }
+
+  /* ══ FOOTER ══ */
+  .footer { background: var(--navy); padding: 32px 56px; border-top: 3px solid var(--gold); }
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 24px; padding-bottom: 24px;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .footer-firm { font-family: "Cormorant Garamond", serif; font-size: 20px; color: var(--white); font-weight: 300; }
+  .footer-firm span {
+    display: block; font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); font-family: "Montserrat", sans-serif; font-weight: 600; margin-bottom: 5px;
+  }
+  .footer-tagline { font-family: "EB Garamond", serif; font-style: italic; font-size: 12px; color: rgba(255,255,255,0.28); margin-top: 4px; }
+  .footer-contact { text-align: right; font-size: 10px; color: var(--slate); line-height: 1.9; }
+  .footer-disclaimer { font-size: 9px; color: rgba(138,155,176,0.55); line-height: 1.75; }
+</style>
+</head>
+<body>
+<div class="email-wrapper">
+
+  <!-- ══ HEADER ══ -->
+  <div class="header">
+    <div class="header-glow"></div>
+
+
+    <div class="logo-container">
+      <img src="https://raw.githubusercontent.com/Sensei863/faraglioni-assets/main/Logo.png" alt="Faraglioni &amp; Aegis" style="height:96px;width:auto;border-radius:4px;">
+    </div>
+
+    <div class="firm-name">Faraglioni &amp; Aegis &nbsp;·&nbsp; Family Office</div>
+    <div class="report-title">The Multi-Strategy<br><em>Weekly Investor Letter</em></div>
+
+    <div class="header-meta">
+      <div class="meta-item">Date<span>Wednesday, 4 March 2026</span></div>
+      <div class="meta-item">Reporting Period<span>26 Feb – 4 Mar 2026</span></div>
+      <div class="meta-item">Classification<span>Strictly Private</span></div>
+    </div>
+  </div>
+
+  <!-- ══ HERO IMAGE ══ -->
+  <div class="hero-image-wrap">
+    <img src="https://raw.githubusercontent.com/Sensei863/faraglioni-assets/main/image_c81b5f.jpg" alt="Faraglioni &amp; Aegis — Coastal scene">
+  </div>
+
+  <!-- ══ BODY ══ -->
+  <div class="body">
+
+    <!-- 01 · PERFORMANCE -->
+    <div class="section">
+      <div class="section-number">01</div>
+      <div class="section-label">Performance</div>
+      <div class="section-title">Executive Performance Snapshot</div>
+      <table class="perf-table">
+        <thead><tr>
+          <th>Strategy</th><th>Weekly</th><th>L1M</th><th>YTD</th><th>Sharpe</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td>Growth &amp; Innovation<span class="strategy-badge">8 ETFs · ISA</span></td>
+            <td class="pos">+2.4%</td><td class="pos">+0.8%</td><td class="pos">+6.2%</td><td>1.45</td>
+          </tr>
+          <tr>
+            <td>Income &amp; Defensives<span class="strategy-badge">7 ETFs · SIPP</span></td>
+            <td class="pos">+0.6%</td><td class="pos">+0.2%</td><td class="pos">+3.1%</td><td>0.82</td>
+          </tr>
+          <tr class="total-row">
+            <td>Consolidated Total<span class="strategy-badge" style="color:rgba(201,168,76,0.55)">All Strategies</span></td>
+            <td class="pos">+1.5%</td><td class="pos">+0.5%</td><td class="pos">+4.6%</td><td class="sharpe">1.10</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 02 · MACRO -->
+    <div class="section">
+      <div class="section-number">02</div>
+      <div class="section-label">Commentary</div>
+      <div class="section-title">Macro Backdrop &amp; Market Narrative</div>
+      <div class="narrative-box">
+        <div class="narrative-text">
+          The primary narrative this week was the <strong>re-escalation of Middle East geopolitical risk</strong>, which caught risk assets off guard as markets opened Monday. The tail risk of a sustained Iran conflict — while not our base case — is materially higher than at any point in 2024 or 2025, and has raised the probability of a <strong>$100/bbl Brent scenario</strong> that warrants tactical caution before buying near-term dips.
+          <br><br>
+          Against this backdrop, the <strong>Goldilocks macro environment remains broadly intact</strong>. US PPI came in firmer than expected but our estimates are unchanged; initial claims held steady; and consumer confidence improved in February alongside re-accelerating house prices. We remain well below consensus on February nonfarm payrolls (25k vs. 70k), which if realised, would reignite rate cut pricing and provide support to duration-sensitive names in the portfolio.
+          <br><br>
+          In Europe, high-frequency indicators point to <strong>resilient euro area momentum</strong>. Bunds are enjoying their strongest start to the year since 2021 — we turn short German rates here, targeting a return to 2.85% on 10y as growth surprises to the upside. The UK's Green Party by-election win adds political noise but does not alter our macro view.
+        </div>
+        <div class="narrative-footer">
+          <span>Faraglioni &amp; Aegis Research Desk</span>
+          <span>Source: Barclays Research · Internal Analysis</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 · CONTRIBUTION -->
+    <div class="section">
+      <div class="section-number">03</div>
+      <div class="section-label">Attribution</div>
+      <div class="section-title">Portfolio Contribution Analysis</div>
+
+      <div class="contrib-group-label">Top Performers</div>
+      <div class="contrib-item">
+        <div class="contrib-header">
+          <div class="contrib-ticker">IUSA.L <span style="font-size:12px;color:var(--slate);font-family:Montserrat,sans-serif;font-weight:400;">iShares S&amp;P 500</span></div>
+          <div class="contrib-pct pos">+1.1%</div>
+        </div>
+        <div class="contrib-desc">Driven by the breakout in US large-cap technology. Strong earnings revisions across the Magnificent Seven provided the primary catalyst.</div>
+        <div class="bar-track"><div class="bar-fill pos" style="width:88%"></div></div>
+      </div>
+      <div class="contrib-item">
+        <div class="contrib-header">
+          <div class="contrib-ticker">SWDA.L <span style="font-size:12px;color:var(--slate);font-family:Montserrat,sans-serif;font-weight:400;">MSCI World</span></div>
+          <div class="contrib-pct pos">+0.7%</div>
+        </div>
+        <div class="contrib-desc">Broad developed market participation supported by resilient euro area PMI data and BoJ policy clarity.</div>
+        <div class="bar-track"><div class="bar-fill pos" style="width:56%"></div></div>
+      </div>
+      <div class="contrib-item">
+        <div class="contrib-header">
+          <div class="contrib-ticker">VUKE.L <span style="font-size:12px;color:var(--slate);font-family:Montserrat,sans-serif;font-weight:400;">FTSE 100</span></div>
+          <div class="contrib-pct pos">+0.4%</div>
+        </div>
+        <div class="contrib-desc">UK defensives and energy names provided steady contribution despite political uncertainty from the Green Party by-election result.</div>
+        <div class="bar-track"><div class="bar-fill pos" style="width:32%"></div></div>
+      </div>
+      <hr class="contrib-divider">
+      <div class="contrib-group-label">Laggards</div>
+      <div class="contrib-item">
+        <div class="contrib-header">
+          <div class="contrib-ticker">ERNS.L <span style="font-size:12px;color:var(--slate);font-family:Montserrat,sans-serif;font-weight:400;">Short Duration IG</span></div>
+          <div class="contrib-pct neg">−0.3%</div>
+        </div>
+        <div class="contrib-desc">Impacted by firmer-than-expected US PPI data and a corresponding repricing of Fed cut expectations at the front end.</div>
+        <div class="bar-track"><div class="bar-fill neg" style="width:24%"></div></div>
+      </div>
+    </div>
+
+    <!-- 04 · TECHNICAL -->
+    <div class="section">
+      <div class="section-number">04</div>
+      <div class="section-label">Technical Analysis</div>
+      <div class="section-title">The Signal: Featured Instruments</div>
+      <div class="tech-featured">
+        <div>
+          <div class="tech-featured-label">Under the Lens</div>
+          <div class="tech-featured-ticker">IUSA.L &nbsp;·&nbsp; ERNS.L</div>
+        </div>
+        <div style="font-size:10px;color:var(--slate);letter-spacing:1px;">Week of 4 March 2026</div>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-label">RSI (14-day)</div>
+          <div class="tech-value">68.2</div>
+          <div class="tech-signal caution">Approaching Overbought</div>
+          <div class="tech-note">Caution advised on new entries. Watch for rejection at the 70 level before adding to IUSA exposure.</div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-label">vs 200-day DMA</div>
+          <div class="tech-value">+4.1%</div>
+          <div class="tech-signal bullish">Long-Term Uptrend</div>
+          <div class="tech-note">Price comfortably above the 200-DMA confirms the structural bull trend remains intact.</div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-label">MACD Signal</div>
+          <div class="tech-value" style="font-size:20px;line-height:1.3">Bullish<br>Crossover</div>
+          <div class="tech-signal bullish">Signal: Tuesday</div>
+          <div class="tech-note">Momentum has legs for another 3–5% upside before resistance at $38.40.</div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-label">52-Week Range Position</div>
+          <div class="tech-value">84<span style="font-size:16px">%ile</span></div>
+          <div class="tech-signal caution">Upper Quartile</div>
+          <div class="tech-note">Favourable trend but limited margin of safety. Existing holders hold; new buyers wait for a pullback.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 · TRADES & CALENDAR -->
+    <div class="section">
+      <div class="section-number">05</div>
+      <div class="section-label">Forward Look</div>
+      <div class="section-title">Trades &amp; Portfolio Activity</div>
+
+      <div style="margin-bottom:36px">
+        <div class="contrib-group-label" style="margin-bottom:0">Potential Trades to Watch</div>
+        <div class="trade-item">
+          <div class="trade-tag breakout">Breakout</div>
+          <div>
+            <div class="trade-title">IUSA.L — Add on Confirmation</div>
+            <div class="trade-desc">S&amp;P 500 momentum remains constructive post-MACD crossover. Consider increasing weighting by 2% on a confirmed close above the 52-week high.</div>
+            <div class="trade-condition">Trigger: Close above $38.40 &nbsp;·&nbsp; Target: +3–5% &nbsp;·&nbsp; Stop: $36.80</div>
+          </div>
+        </div>
+        <div class="trade-item">
+          <div class="trade-tag hedge">Hedge</div>
+          <div>
+            <div class="trade-title">Volatility Hedge — VIX Watch</div>
+            <div class="trade-desc">Should VIX cross 20 on sustained Middle East escalation, initiate a starter position in a defensive income ETF to dampen portfolio volatility.</div>
+            <div class="trade-condition">Trigger: VIX &gt; 20 &nbsp;·&nbsp; Instrument: VUKE.L or cash equivalent</div>
+          </div>
+        </div>
+        <div class="trade-item">
+          <div class="trade-tag watch">Watch</div>
+          <div>
+            <div class="trade-title">German Bunds — Short Duration</div>
+            <div class="trade-desc">Following Barclays' tactical short on German rates, monitor for entry. Expect 10y bund yields to return to 2.85% as growth surprises to the upside.</div>
+            <div class="trade-condition">View: Short German rates &nbsp;·&nbsp; Target yield: 2.85% &nbsp;·&nbsp; Risk: ECB dovish surprise</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contrib-group-label">Key Economic Calendar &nbsp;·&nbsp; Week of 9 March</div>
+      <div class="calendar-item">
+        <div class="cal-day">Mon 9</div>
+        <div class="cal-event">US ISM Manufacturing PMI</div>
+        <div class="cal-impact medium">Medium</div>
+      </div>
+      <div class="calendar-item">
+        <div class="cal-day">Tue 10</div>
+        <div class="cal-event">Consumer Price Index (CPI) — US</div>
+        <div class="cal-impact high">High</div>
+      </div>
+      <div class="calendar-item">
+        <div class="cal-day">Wed 11</div>
+        <div class="cal-event">Fed Beige Book &nbsp;·&nbsp; ISM Services PMI</div>
+        <div class="cal-impact medium">Medium</div>
+      </div>
+      <div class="calendar-item">
+        <div class="cal-day">Fri 13</div>
+        <div class="cal-event">US Nonfarm Payrolls &nbsp;·&nbsp; UMich Consumer Sentiment</div>
+        <div class="cal-impact high">High</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <div class="footer">
+    <div class="footer-top">
+      <div class="footer-firm">
+        <span>Faraglioni &amp; Aegis</span>
+        Family Office
+        <div class="footer-tagline">Preserving Wealth. Securing Legacies.</div>
+      </div>
+      <div class="footer-contact">
+        Weekly Investor Letter<br>
+        4 March 2026<br>
+        Strictly Private &amp; Confidential
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      This communication is prepared exclusively for the named recipient and is intended solely for personal reference. It does not constitute investment advice, an offer to buy or sell securities, or a solicitation of any kind. Past performance is not indicative of future results. All market data and third-party research referenced herein is sourced from publicly available materials and licensed research services. Faraglioni &amp; Aegis accepts no liability for investment decisions made on the basis of this communication. Please consult a regulated financial adviser before acting on any information contained herein.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

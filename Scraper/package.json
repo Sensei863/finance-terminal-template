@@ -1,0 +1,15 @@
+{
+  "name": "barclays-macro-scraper",
+  "version": "1.0.0",
+  "description": "Fetches Barclays Live research articles and generates a weekly macro digest",
+  "main": "scraper.js",
+  "scripts": {
+    "scrape": "node scraper.js --input Macro_Wrap.md",
+    "scrape:headless": "node scraper.js --input Macro_Wrap.md --headless --cookies session.json",
+    "digest": "node digest.js --snapshots ./snapshots",
+    "weekly": "npm run scrape && npm run digest"
+  },
+  "dependencies": {
+    "playwright": "^1.41.0"
+  }
+}

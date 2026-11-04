@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-brand-navy: #0a1628;
+  --color-brand-navy-mid: #112240;
+  --color-brand-navy-light: #1a3a5c;
+  --color-brand-gold: #c9a84c;
+  --color-brand-gold-light: #e8c97a;
+  --color-brand-gold-dark: #a07830;
+  --color-brand-cream: #f8f5ef;
+  --color-brand-cream-dark: #ede8de;
+  --color-brand-slate: #8a9bb0;
+  --color-brand-green: #2d7a4f;
+  --color-brand-red: #8b2635;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border-color: var(--border-color);
+  
+  --font-serif: var(--font-cormorant);
+  --font-serif-secondary: var(--font-eb-garamond);
+  --font-sans: var(--font-montserrat);
+}
+
+:root {
+  --background: var(--color-brand-cream);
+  --foreground: var(--color-brand-navy);
+  --border-color: var(--color-brand-cream-dark);
+}
+
+.dark {
+  --background: var(--color-brand-navy);
+  --foreground: var(--color-brand-cream);
+  --border-color: var(--color-brand-navy-mid);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Mobile touch improvements */
+a, button, input, select {
+  touch-action: manipulation;
+}
+
+/* Minimum touch target utility */
+.touch-target {
+  min-height: 44px;
+}
